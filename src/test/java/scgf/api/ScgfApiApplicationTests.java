@@ -1,10 +1,10 @@
-package rh.api;
+package scgf.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiApplicationTests {
+class ScgfApiApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package rh.api.endereco;
+package scgf.api.endereco;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;

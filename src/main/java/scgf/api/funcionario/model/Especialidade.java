@@ -1,4 +1,4 @@
-package rh.api.funcionario.model;
+package scgf.api.funcionario.model;
 
 public enum Especialidade {
     PROGRAMACAO,

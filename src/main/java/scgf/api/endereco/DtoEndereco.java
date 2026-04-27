@@ -1,4 +1,4 @@
-package rh.api.endereco;
+package scgf.api.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

@@ -1,11 +1,11 @@
-package rh.api.funcionario;
+package scgf.api.funcionario;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import rh.api.conta.ContaTipo;
-import rh.api.funcionario.model.Funcionario;
+import scgf.api.conta.ContaTipo;
+import scgf.api.funcionario.model.Funcionario;
 
 import java.util.List;
 

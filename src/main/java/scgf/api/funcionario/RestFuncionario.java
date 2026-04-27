@@ -1,4 +1,4 @@
-package rh.api.funcionario;
+package scgf.api.funcionario;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -10,13 +10,13 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import rh.api.conta.ContaTipo;
-import rh.api.funcionario.dto.DtoAtualizarFuncionario;
-import rh.api.funcionario.dto.DtoCadastroFuncionario;
-import rh.api.funcionario.dto.DtoDetalhamentoFuncionario;
-import rh.api.funcionario.dto.DtoListaFuncionarios;
-import rh.api.funcionario.model.Funcionario;
-import rh.api.funcionario.service.ValidadorCadFuncionario;
+import scgf.api.conta.ContaTipo;
+import scgf.api.funcionario.dto.DtoAtualizarFuncionario;
+import scgf.api.funcionario.dto.DtoCadastroFuncionario;
+import scgf.api.funcionario.dto.DtoDetalhamentoFuncionario;
+import scgf.api.funcionario.dto.DtoListaFuncionarios;
+import scgf.api.funcionario.model.Funcionario;
+import scgf.api.funcionario.service.ValidadorCadFuncionario;
 
 import java.util.List;
 

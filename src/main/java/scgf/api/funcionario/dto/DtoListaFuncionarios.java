@@ -1,8 +1,8 @@
-package rh.api.funcionario.dto;
+package scgf.api.funcionario.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import rh.api.funcionario.model.Especialidade;
-import rh.api.funcionario.model.Funcionario;
+import scgf.api.funcionario.model.Especialidade;
+import scgf.api.funcionario.model.Funcionario;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record DtoListaFuncionarios(String cpf, String nome, String email, Especialidade especialidade) {

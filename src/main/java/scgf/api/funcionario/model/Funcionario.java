@@ -1,14 +1,14 @@
-package rh.api.funcionario.model;
+package scgf.api.funcionario.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import rh.api.conta.Conta;
-import rh.api.endereco.Endereco;
-import rh.api.funcionario.dto.DtoAtualizarFuncionario;
-import rh.api.funcionario.dto.DtoCadastroFuncionario;
+import scgf.api.conta.Conta;
+import scgf.api.endereco.Endereco;
+import scgf.api.funcionario.dto.DtoAtualizarFuncionario;
+import scgf.api.funcionario.dto.DtoCadastroFuncionario;
 
 @Entity
 @Getter
