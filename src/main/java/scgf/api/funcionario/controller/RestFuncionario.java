@@ -16,6 +16,7 @@ import scgf.api.funcionario.dto.DtoAtualizarFuncionario;
 import scgf.api.funcionario.dto.DtoCadastroFuncionario;
 import scgf.api.funcionario.dto.DtoDetalhamentoFuncionario;
 import scgf.api.funcionario.dto.DtoListaFuncionarios;
+import scgf.api.funcionario.model.Especialidade;
 import scgf.api.funcionario.model.Funcionario;
 import scgf.api.funcionario.service.ValidadorCadFuncionario;
 
@@ -38,7 +39,7 @@ public class RestFuncionario {
 
         validador.validarCadastro(dados);
         var funcionario = new Funcionario(dados);
-        validador.ajustarSalarioSeProgramador(funcionario);
+        validador.ajustarSalarioSeDesenvolvedor(funcionario);
         repositorio.save(funcionario);
 
         var uri = uriBuilder.path("/funcionarios/{cpf}").buildAndExpand(funcionario.getCpf()).toUri();
@@ -82,7 +83,8 @@ public class RestFuncionario {
 
     @GetMapping("/listar/especialidade/{especialidade}")
     public List<DtoListaFuncionarios> listarPorEspecialidade(@PathVariable String especialidade) {
-        return repositorio.buscarPorEspecialidade(List.of(especialidade))
+        var especialidadeFiltro = Especialidade.from(especialidade);
+        return repositorio.buscarPorEspecialidade(especialidadeFiltro)
             .stream()
             .map(DtoListaFuncionarios::new)
             .toList();

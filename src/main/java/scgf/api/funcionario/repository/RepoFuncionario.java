@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import scgf.api.conta.ContaTipo;
+import scgf.api.funcionario.model.Especialidade;
 import scgf.api.funcionario.model.Funcionario;
 
 import java.util.List;
@@ -35,9 +36,9 @@ public interface RepoFuncionario extends JpaRepository<Funcionario, String> {
     @Query("""
         select f
         from Funcionario f
-        where f.especialidade in :especialidades
+        where f.especialidade = :especialidade
     """)
-    List<Funcionario> buscarPorEspecialidade(List<String> especialidades);
+    List<Funcionario> buscarPorEspecialidade(Especialidade especialidade);
 
     @Query("""
         select f

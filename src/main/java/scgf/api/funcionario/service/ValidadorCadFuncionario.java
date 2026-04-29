@@ -33,12 +33,12 @@ public class ValidadorCadFuncionario {
         throw new RuntimeException(mensagem);
     }
 
-    public void ajustarSalarioSeProgramador(Funcionario funcionario) {
-        if (funcionario.getEspecialidade() == Especialidade.PROGRAMACAO) {
+    public void ajustarSalarioSeDesenvolvedor(Funcionario funcionario) {
+        if (funcionario.getEspecialidade() == Especialidade.DESENVOLVEDOR) {
             var salarioAtual = funcionario.getConta().getSalario();
             var aumento = funcionario.getConta().getSalario() * 0.20;
             funcionario.getConta().setSalario(funcionario.getConta().getSalario() + aumento);
-            log.info("Salário do programador {} aumentado em 20%: salário anterior = {}, novo salário = {}", funcionario.getNome(), salarioAtual, funcionario.getConta().getSalario());
+            log.info("Salário do desenvolvedor {} aumentado em 20%: salário anterior = {}, novo salário = {}", funcionario.getNome(), salarioAtual, funcionario.getConta().getSalario());
         }
     }
 }
