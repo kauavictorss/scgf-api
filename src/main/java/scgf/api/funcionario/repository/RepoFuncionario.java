@@ -1,4 +1,4 @@
-package scgf.api.funcionario;
+package scgf.api.funcionario.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

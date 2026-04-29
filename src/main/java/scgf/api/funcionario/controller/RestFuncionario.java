@@ -1,4 +1,4 @@
-package scgf.api.funcionario;
+package scgf.api.funcionario.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import scgf.api.conta.ContaTipo;
+import scgf.api.funcionario.repository.RepoFuncionario;
 import scgf.api.funcionario.dto.DtoAtualizarFuncionario;
 import scgf.api.funcionario.dto.DtoCadastroFuncionario;
 import scgf.api.funcionario.dto.DtoDetalhamentoFuncionario;
