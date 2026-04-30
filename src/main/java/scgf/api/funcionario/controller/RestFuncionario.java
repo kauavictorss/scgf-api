@@ -15,12 +15,14 @@ import scgf.api.funcionario.repository.RepoFuncionario;
 import scgf.api.funcionario.dto.DtoAtualizarFuncionario;
 import scgf.api.funcionario.dto.DtoCadastroFuncionario;
 import scgf.api.funcionario.dto.DtoDetalhamentoFuncionario;
+import scgf.api.funcionario.dto.DtoEspecialidade;
 import scgf.api.funcionario.dto.DtoListaFuncionarios;
 import scgf.api.funcionario.model.Especialidade;
 import scgf.api.funcionario.model.Funcionario;
 import scgf.api.funcionario.service.ValidadorCadFuncionario;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @RestController
 @Slf4j
@@ -46,6 +48,11 @@ public class RestFuncionario {
 
         log.info("Funcionário cadastrado com sucesso!");
         return ResponseEntity.created(uri).body(new DtoDetalhamentoFuncionario(funcionario));
+    }
+
+    @GetMapping("/listar/detalhes/{cpf}")
+    public List<DtoDetalhamentoFuncionario> buscarDetalhesFuncionario(@PathVariable String cpf) {
+        return repositorio.findById(cpf).stream().map(DtoDetalhamentoFuncionario::new).toList();
     }
 
     @GetMapping("/listar/ativos")
@@ -77,7 +84,7 @@ public class RestFuncionario {
         String nomeFuncionario = funcionario.map(Funcionario::getNome).orElse("NÃO ENCONTRADO");
         log.info("Buscando dados da conta do funcionário {} com CPF: {}", nomeFuncionario, cpf);
         return funcionario.stream()
-            .map(f -> new DtoDetalhamentoFuncionario(f.getCpf(), f.getNome(), f.getEspecialidade(), f.getConta()))
+            .map(f -> new DtoDetalhamentoFuncionario(f.getCpf(), f.getNome(), new DtoEspecialidade(f.getEspecialidade()), f.getConta()))
             .toList();
     }
 
@@ -87,6 +94,13 @@ public class RestFuncionario {
         return repositorio.buscarPorEspecialidade(especialidadeFiltro)
             .stream()
             .map(DtoListaFuncionarios::new)
+            .toList();
+    }
+
+    @GetMapping("/listar/especialidades")
+    public List<DtoEspecialidade> listarEspecialidades() {
+        return Stream.of(Especialidade.values())
+            .map(DtoEspecialidade::new)
             .toList();
     }
 

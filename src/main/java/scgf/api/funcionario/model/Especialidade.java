@@ -1,7 +1,6 @@
 package scgf.api.funcionario.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 import java.util.Locale;
@@ -44,6 +43,10 @@ public enum Especialidade {
         this.descricao = descricao;
     }
 
+    public String getCodigo() {
+        return name();
+    }
+
     public boolean isAreaTi() {
         return this == DESENVOLVEDOR
             || this == CIBERSEGURANCA
@@ -51,8 +54,7 @@ public enum Especialidade {
             || this == TEC_INFORMATICA;
     }
 
-    @JsonValue
-    public String toJson() {
+    public String getDescricaoExibicao() {
         return isAreaTi() ? descricao + " (TI)" : descricao;
     }
 
@@ -66,7 +68,7 @@ public enum Especialidade {
         for (var especialidade : values()) {
             if (especialidade.name().equalsIgnoreCase(texto)
                 || especialidade.descricao.equalsIgnoreCase(texto)
-                || especialidade.toJson().equalsIgnoreCase(texto)) {
+                || especialidade.getDescricaoExibicao().equalsIgnoreCase(texto)) {
                 return especialidade;
             }
         }
