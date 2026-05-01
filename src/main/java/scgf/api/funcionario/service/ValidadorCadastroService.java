@@ -13,7 +13,7 @@ import scgf.api.funcionario.model.Funcionario;
 @Slf4j
 @Transactional
 @RequiredArgsConstructor
-public class ValidadorCadFuncionario {
+public class ValidadorCadastroService {
 
     private final RepoFuncionario repositorio;
 

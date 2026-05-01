@@ -11,8 +11,7 @@ import scgf.api.funcionario.model.Especialidade;
 
 public record DtoCadastroFuncionario(
 
-        @NotBlank
-        @Pattern(regexp = "\\d{11}", message = "CPF deve conter 11 dígitos")
+        @NotBlank @Pattern(regexp = "(\\d{11}|\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})", message = "CPF deve conter 11 dígitos ou estar no formato 000.000.000-00")
         String cpf,
 
         @NotBlank

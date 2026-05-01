@@ -19,7 +19,7 @@ import scgf.api.funcionario.dto.DtoEspecialidade;
 import scgf.api.funcionario.dto.DtoListaFuncionarios;
 import scgf.api.funcionario.model.Especialidade;
 import scgf.api.funcionario.model.Funcionario;
-import scgf.api.funcionario.service.ValidadorCadFuncionario;
+import scgf.api.funcionario.service.ValidadorCadastroService;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -31,7 +31,7 @@ import java.util.stream.Stream;
 @RequestMapping("funcionarios")
 public class RestFuncionario {
 
-    private final ValidadorCadFuncionario validador;
+    private final ValidadorCadastroService validador;
     private final RepoFuncionario repositorio;
 
     @PostMapping
