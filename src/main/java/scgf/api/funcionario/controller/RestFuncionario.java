@@ -91,7 +91,7 @@ public class RestFuncionario {
     @GetMapping("/listar/especialidade/{especialidade}")
     public List<DtoListaFuncionarios> listarPorEspecialidade(@PathVariable String especialidade) {
         var especialidadeFiltro = Especialidade.from(especialidade);
-        return repositorio.buscarPorEspecialidade(especialidadeFiltro)
+        return repositorio.buscarFuncioanriosPorEspecialidade(especialidadeFiltro)
             .stream()
             .map(DtoListaFuncionarios::new)
             .toList();
@@ -100,8 +100,8 @@ public class RestFuncionario {
     @GetMapping("/listar/especialidades")
     public List<DtoEspecialidade> listarEspecialidades() {
         return Stream.of(Especialidade.values())
-            .map(DtoEspecialidade::new)
-            .toList();
+                .map(DtoEspecialidade::new)
+                .toList();
     }
 
     @GetMapping("/listar/tipo-conta/{tpConta}")

@@ -38,7 +38,7 @@ public interface RepoFuncionario extends JpaRepository<Funcionario, String> {
         from Funcionario f
         where f.especialidade = :especialidade
     """)
-    List<Funcionario> buscarPorEspecialidade(Especialidade especialidade);
+    List<Funcionario> buscarFuncioanriosPorEspecialidade(Especialidade especialidade);
 
     @Query("""
         select f
