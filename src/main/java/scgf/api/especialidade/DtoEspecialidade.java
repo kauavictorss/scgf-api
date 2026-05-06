@@ -1,6 +1,4 @@
-package scgf.api.funcionario.dto;
-
-import scgf.api.funcionario.model.Especialidade;
+package scgf.api.especialidade;
 
 public record DtoEspecialidade(String codigo, String descricao) {
     public DtoEspecialidade(Especialidade especialidade) {

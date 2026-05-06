@@ -15,9 +15,9 @@ import scgf.api.funcionario.repository.RepoFuncionario;
 import scgf.api.funcionario.dto.DtoAtualizarFuncionario;
 import scgf.api.funcionario.dto.DtoCadastroFuncionario;
 import scgf.api.funcionario.dto.DtoDetalhamentoFuncionario;
-import scgf.api.funcionario.dto.DtoEspecialidade;
+import scgf.api.especialidade.DtoEspecialidade;
 import scgf.api.funcionario.dto.DtoListaFuncionarios;
-import scgf.api.funcionario.model.Especialidade;
+import scgf.api.especialidade.Especialidade;
 import scgf.api.funcionario.model.Funcionario;
 import scgf.api.funcionario.service.ValidadorCadastroService;
 
@@ -72,10 +72,10 @@ public class RestFuncionario {
 
     @GetMapping("/email/{email}")
     public List<DtoListaFuncionarios> buscarEmailFuncionario(@PathVariable String email) {
-        var funcionario = repositorio.buscarPorEmail(email).stream().findFirst();
+        var funcionario = repositorio.findByEmail(email).stream().findFirst();
         String nomeFuncionario = funcionario.map(Funcionario::getNome).orElse("NÃO ENCONTRADO");
         log.info("Buscando funcionário {} com email: {}", nomeFuncionario, email);
-        return repositorio.buscarPorEmail(email).stream().map(DtoListaFuncionarios::new).toList();
+        return repositorio.findByEmail(email).stream().map(DtoListaFuncionarios::new).toList();
     }
 
     @GetMapping("/dados-conta/{cpf}")
@@ -91,7 +91,7 @@ public class RestFuncionario {
     @GetMapping("/listar/especialidade/{especialidade}")
     public List<DtoListaFuncionarios> listarPorEspecialidade(@PathVariable String especialidade) {
         var especialidadeFiltro = Especialidade.from(especialidade);
-        return repositorio.buscarFuncioanriosPorEspecialidade(especialidadeFiltro)
+        return repositorio.findByEspecialidade(especialidadeFiltro)
             .stream()
             .map(DtoListaFuncionarios::new)
             .toList();
@@ -107,7 +107,7 @@ public class RestFuncionario {
     @GetMapping("/listar/tipo-conta/{tpConta}")
     public List<DtoListaFuncionarios> listarFuncionariosPorTipoConta(@PathVariable String tpConta) {
         log.info("Listando funcionários por tipo de conta: {}", tpConta);
-        return repositorio.buscarPorTipoConta(List.of(ContaTipo.valueOf(tpConta)))
+        return repositorio.findByContaTipo(List.of(ContaTipo.valueOf(tpConta)))
             .stream()
             .map(DtoListaFuncionarios::new)
             .toList();

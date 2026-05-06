@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import scgf.api.funcionario.repository.RepoFuncionario;
 import scgf.api.funcionario.dto.DtoCadastroFuncionario;
-import scgf.api.funcionario.model.Especialidade;
+import scgf.api.especialidade.Especialidade;
 import scgf.api.funcionario.model.Funcionario;
 
 @Component

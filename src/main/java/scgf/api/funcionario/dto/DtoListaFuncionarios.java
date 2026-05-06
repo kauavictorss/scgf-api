@@ -1,6 +1,7 @@
 package scgf.api.funcionario.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import scgf.api.especialidade.DtoEspecialidade;
 import scgf.api.funcionario.model.Funcionario;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

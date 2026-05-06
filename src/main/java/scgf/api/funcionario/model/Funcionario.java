@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import scgf.api.conta.Conta;
 import scgf.api.endereco.Endereco;
+import scgf.api.especialidade.Especialidade;
 import scgf.api.funcionario.dto.DtoAtualizarFuncionario;
 import scgf.api.funcionario.dto.DtoCadastroFuncionario;
 

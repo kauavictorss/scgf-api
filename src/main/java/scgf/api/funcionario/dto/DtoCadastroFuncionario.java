@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import scgf.api.conta.DtoConta;
 import scgf.api.endereco.DtoEndereco;
-import scgf.api.funcionario.model.Especialidade;
+import scgf.api.especialidade.Especialidade;
 
 public record DtoCadastroFuncionario(
 

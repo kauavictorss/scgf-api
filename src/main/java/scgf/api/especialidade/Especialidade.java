@@ -1,4 +1,4 @@
-package scgf.api.funcionario.model;
+package scgf.api.especialidade;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
