@@ -118,6 +118,9 @@ public class RestFuncionario {
     public ResponseEntity<DtoDetalhamentoFuncionario> atualizarFuncionario(@RequestBody @Valid DtoAtualizarFuncionario dados) {
         var funcionario = repositorio.getReferenceById(dados.cpf());
         funcionario.atualizarDados(dados);
+        log.info("Atualizando funcionário(a) {} com CPF: {}",funcionario.getNome(), dados.cpf());
+        log.info("Dados atualizados: {}", dados);
+        log.info("Funcionário atualizado com sucesso!");
         return ResponseEntity.ok(new DtoDetalhamentoFuncionario(funcionario));
     }
 
