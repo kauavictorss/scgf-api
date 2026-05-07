@@ -1,9 +1,9 @@
 # 🚀 SCGF - Sistema de Consultas e Gerenciamento de Funcionários
 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.14-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
-![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
 O **SCGF** é uma solução completa para a gestão de capital humano, focada na eficiência e precisão dos dados. O projeto integra um robusto ecossistema Backend em Spring Boot com uma interface moderna e intuitiva em Vue.js, permitindo o controle total sobre o ciclo de vida dos colaboradores na organização.
@@ -24,7 +24,7 @@ O **SCGF** é uma solução completa para a gestão de capital humano, focada na
 ### **Frontend (UI Experience)** ([Repositório](https://github.com/kauavictorss/scgf-ui))
 - **Framework:** Vue 3
 - **Build Tool:** Vite
-- **UI Components:** PrimeVue & BootstrapVueNext
+- **UI Components:** PrimeVue 4 & BootstrapVueNext
 - **Estilização:** CSS Moderno / Bootstrap 5
 - **Comunicação:** Axios
 
@@ -143,10 +143,19 @@ npm run dev
 
 ---
 
-## 📄 Licença
+## 📝 Licença
 
 Este projeto está sob a licença [MIT](LICENSE).
 
 ---
 
-Desenvolvido com ❤️ por [Kauã Victor](https://github.com/kauavictorss)
+## 👨‍💻 Autor
+
+<div align="center">
+  <img src="https://github.com/kauavictorss.png" width="150px" style="border-radius: 50%;" alt="Kauã Victor"/>
+  <br>
+  <h1>Kauã Victor Silva dos Santos</h1>
+
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kauavictorss)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaua-victor-santos/)
+</div>
