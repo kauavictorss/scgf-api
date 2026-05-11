@@ -1,73 +1,64 @@
-# 🚀 SCGF - Sistema de Consultas e Gerenciamento de Funcionários
+# ⚙️ SCGF API - Core Engine
 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.14-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-3.9%2B-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-O **SCGF** é uma solução completa para a gestão de capital humano, focada na eficiência e precisão dos dados. O projeto integra um robusto ecossistema Backend em Spring Boot com uma interface moderna e intuitiva em Vue.js, permitindo o controle total sobre o ciclo de vida dos colaboradores na organização.
+O **SCGF API** é o motor de processamento e persistência do Sistema de Consultas e Gerenciamento de Funcionários. Desenvolvido com uma arquitetura robusta em Spring Boot, ele fornece uma interface RESTful segura e escalável para gerenciar o ciclo de vida dos colaboradores.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-### **Backend (Core API)**
 - **Framework:** Spring Boot 3.5.14
 - **Linguagem:** Java 21 (LTS)
 - **Persistência:** Spring Data JPA / Hibernate
-- **Banco de Dados:** MySQL
+- **Banco de Dados:** MySQL 8.0
 - **Migrações:** Flyway DB
 - **Produtividade:** Lombok
 - **Validação:** Bean Validation (Jakarta)
 
-### **Frontend (UI Experience)** ([Repositório](https://github.com/kauavictorss/scgf-ui))
-- **Framework:** Vue 3
-- **Build Tool:** Vite
-- **UI Components:** PrimeVue 4 & BootstrapVueNext
-- **Estilização:** CSS Moderno / Bootstrap 5
-- **Comunicação:** Axios
-
 ---
 
-## ✨ Funcionalidades Principais
+## ✨ Funcionalidades da API
 
 ### ✅ Já Implementado
-- **Gestão de Colaboradores:** Cadastro completo com validação rigorosa (CPF único, e-mail único, idade mínima 18 anos).
-- **Inteligência de Negócio:** Ajuste salarial automático (+20%) para perfis técnicos (Desenvolvedores).
-- **Consultas Avançadas:**
-    - Listagem paginada de funcionários ativos e inativos.
-    - Filtros por Especialidade e Tipo de Conta.
-    - Busca detalhada por CPF e E-mail.
-- **Ciclo de Vida:** Atualização dinâmica de dados e exclusão lógica (inativação).
+- **Endpoints de Gestão:** CRUD completo de funcionários com validações de negócio (CPF, idade, e-mail único).
+- **Inteligência de Domínio:** Cálculo automático de bônus salarial (+20%) para Desenvolvedores.
+- **Consultas Filtradas:**
+    - Listagem paginada (Ativos/Inativos).
+    - Filtros por Especialidade e Tipo de Conta Bancária.
+- **Segurança de Dados:** Validação rigorosa de formatos (CEP, CPF, Conta Bancária).
 
-### 🚀 Roadmap (Em breve)
-- [ ] **Gestão de Cargos:** Controle de faixas salariais e promoções.
-- [ ] **Controle de Ponto:** Registro de horas, faltas e gestão de férias.
-- [ ] **Dashboard de Relatórios:** Visão analítica por especialidade e status.
-- [ ] **Segurança Avançada:** Autenticação JWT e controle de acesso por perfis (RBAC).
-- [ ] **Auditoria:** Histórico completo de alterações (Logs).
+### 🚀 Roadmap Backend
+- [ ] **Segurança Avançada:** Implementação de JWT e Spring Security (RBAC).
+- [ ] **Auditoria:** Registro de logs de alteração por usuário.
+- [ ] **Relatórios:** Geração de arquivos PDF/Excel para exportação de dados.
+- [ ] **Testes:** Expansão da cobertura de testes unitários e de integração.
 
 ---
 
-## 📖 Exemplos de Uso
+## 📖 Como Utilizar (API)
 
-O banco de dados pode ser populado de duas maneiras:
-1. **Pela Interface Web (UI):** Utilizando os formulários intuitivos no frontend.
-2. **Pela API (REST):** Enviando requisições POST para o endpoint `/funcionarios` utilizando ferramentas como **Postman** ou **Insomnia**.
+A API foi projetada para ser consumida por qualquer cliente REST (Web, Mobile ou ferramentas de teste).
+
+> **Interface Web:** Para utilizar a interface visual oficial deste sistema, consulte o repositório [scgf-ui](https://github.com/kauavictorss/scgf-ui).
+
+### Template JSON para Cadastro (POST /funcionarios)
 
 <details>
-  <summary>📍 Template JSON para Cadastro (POST /funcionarios)</summary>
+  <summary>Clique para ver o JSON de exemplo</summary>
 
 ```json
 {
-  "cpf": "00000000000",
+  "cpf": "000.000.000-00",
   "nome": "Nome do Colaborador",
   "idade": 25,
   "email": "exemplo@email.com",
   "especialidade": "DESENVOLVEDOR",
   "conta": {
-    "numConta": "12345-6",
+    "numConta": "12345678-9",
     "agencia": "0001",
     "tipoConta": "CORRENTE",
     "salario": 5000.00
@@ -87,65 +78,58 @@ O banco de dados pode ser populado de duas maneiras:
 
 ---
 
-## 📐 Arquitetura do Sistema
+## 📐 Arquitetura do Projeto
 
-O projeto segue os princípios da **Clean Architecture** e **S.O.L.I.D**, garantindo manutenibilidade e escalabilidade:
+O código está organizado seguindo padrões de **Clean Architecture** e **S.O.L.I.D**:
 
 ```text
 scgf-api/
 ├── src/main/java/scgf/api/
+│   ├── config/         # Configurações globais (CORS, etc.)
 │   ├── conta/          # Domínio de Contas Bancárias
 │   ├── endereco/       # Domínio de Endereços
-│   ├── especialidade/  # Domínio de Especialidades/Cargos
-│   └── funcionario/    # Domínio Principal (Controller, Service, Model, Repository)
-└── src/resources/db/migration  # Scripts de evolução do banco (Flyway)
+│   ├── especialidade/  # Domínio de Especialidades
+│   └── funcionario/    # Domínio Principal (Model, DTO, Repository, Service, Controller)
+└── src/resources/db/migration  # Versionamento do banco de dados (Flyway)
 ```
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 🚀 Como Executar o Backend
 
 ### Pré-requisitos
 - JDK 21+
 - Maven 3.x
 - MySQL 8.0+
-- Node.js (para o frontend)
 
-### 1. Clonar os Repositórios
+### 1. Clonar o Repositório
 ```bash
-# Backend
 git clone https://github.com/kauavictorss/scgf-api.git
-
-# Frontend
-git clone https://github.com/kauavictorss/scgf-ui.git
 ```
 
 ### 2. Configurar o Banco de Dados
-No arquivo `src/main/resources/application.properties` do backend, ajuste as credenciais do seu MySQL:
+Ajuste as credenciais no arquivo `src/main/resources/application.properties`:
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/scgf_db
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 ```
 
-### 3. Rodar o Backend
+### 3. Executar a Aplicação
+
+Você pode usar o Maven instalado na sua máquina ou o **Maven Wrapper** incluso no projeto (recomendado):
+
 ```bash
-cd scgf-api
+# Usando o Wrapper (Windows)
+.\mvnw.cmd spring-boot:run
+
+# Usando o Wrapper (Linux/Mac)
+./mvnw spring-boot:run
+
+# Ou Maven global
 mvn spring-boot:run
 ```
-
-### 4. Rodar o Frontend
-```bash
-cd scgf-ui
-npm install
-npm run dev
-```
-
----
-
-## 📝 Licença
-
-Este projeto está sob a licença [MIT](LICENSE).
+A API estará disponível em `http://localhost:8080`.
 
 ---
 
