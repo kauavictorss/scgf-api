@@ -1,7 +1,0 @@
-package scgf.api.especialidade;
-
-public record DtoEspecialidade(String codigo, String descricao) {
-    public DtoEspecialidade(Especialidade especialidade) {
-        this(especialidade.getCodigo(), especialidade.getDescricaoExibicao());
-    }
-}
