@@ -9,15 +9,15 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-import scgf.api.application.funcionario.dto.DtoAtualizarFuncionario;
-import scgf.api.application.funcionario.dto.DtoCadastroFuncionario;
-import scgf.api.application.funcionario.dto.DtoDetalhamentoFuncionario;
-import scgf.api.application.especialidade.dto.DtoEspecialidade;
-import scgf.api.application.funcionario.dto.DtoListaFuncionarios;
-import scgf.api.application.funcionario.service.AtualizarFuncionarioService;
-import scgf.api.application.funcionario.service.CadastrarFuncionarioService;
-import scgf.api.application.funcionario.service.ConsultarFuncionarioService;
-import scgf.api.application.funcionario.service.RemoverFuncionarioService;
+import scgf.api.application.dto.funcionario.DtoAtualizarFuncionario;
+import scgf.api.application.dto.funcionario.DtoCadastroFuncionario;
+import scgf.api.application.dto.funcionario.DtoDetalhamentoFuncionario;
+import scgf.api.application.dto.especialidade.DtoEspecialidade;
+import scgf.api.application.dto.funcionario.DtoListaFuncionarios;
+import scgf.api.application.service.AtualizarFuncionarioService;
+import scgf.api.application.service.CadastrarFuncionarioService;
+import scgf.api.application.service.ConsultarFuncionarioService;
+import scgf.api.application.service.RemoverFuncionarioService;
 
 import java.util.List;
 

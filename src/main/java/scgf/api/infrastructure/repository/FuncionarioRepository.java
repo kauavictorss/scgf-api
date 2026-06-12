@@ -4,9 +4,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import scgf.api.domain.conta.ContaTipo;
-import scgf.api.domain.especialidade.Especialidade;
-import scgf.api.domain.funcionario.Funcionario;
+import scgf.api.domain.enums.conta.ContaTipo;
+import scgf.api.domain.enums.especialidade.Especialidade;
+import scgf.api.domain.model.funcionario.Funcionario;
 
 import java.util.List;
 
