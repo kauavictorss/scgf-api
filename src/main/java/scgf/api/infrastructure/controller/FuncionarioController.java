@@ -1,4 +1,4 @@
-package scgf.api.infrastructure.funcionario.controller;
+package scgf.api.infrastructure.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @RequestMapping("funcionarios")
-public class RestFuncionario {
+public class FuncionarioController {
 
     private final CadastrarFuncionarioService cadastrarFuncionarioService;
     private final ConsultarFuncionarioService consultarFuncionarioService;

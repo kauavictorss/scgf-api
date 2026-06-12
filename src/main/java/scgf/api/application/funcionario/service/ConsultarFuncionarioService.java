@@ -11,7 +11,7 @@ import scgf.api.domain.especialidade.Especialidade;
 import scgf.api.application.funcionario.dto.DtoDetalhamentoFuncionario;
 import scgf.api.application.funcionario.dto.DtoListaFuncionarios;
 import scgf.api.domain.funcionario.Funcionario;
-import scgf.api.infrastructure.funcionario.repository.RepoFuncionario;
+import scgf.api.infrastructure.repository.FuncionarioRepository;
 import scgf.api.infrastructure.exception.RecursoNaoEncontradoException;
 
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class ConsultarFuncionarioService {
 
-    private final RepoFuncionario repositorio;
+    private final FuncionarioRepository repositorio;
 
     public DtoDetalhamentoFuncionario buscarDetalhesPorCpf(String cpf) {
         var funcionario = buscarFuncionarioPorCpf(cpf);

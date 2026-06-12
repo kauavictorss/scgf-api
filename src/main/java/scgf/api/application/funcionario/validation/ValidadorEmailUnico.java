@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import scgf.api.application.funcionario.dto.DtoCadastroFuncionario;
-import scgf.api.infrastructure.funcionario.repository.RepoFuncionario;
+import scgf.api.infrastructure.repository.FuncionarioRepository;
 import scgf.api.infrastructure.exception.RegraDeNegocioException;
 
 @Component
@@ -12,7 +12,7 @@ import scgf.api.infrastructure.exception.RegraDeNegocioException;
 @RequiredArgsConstructor
 public class ValidadorEmailUnico implements ValidadorCadastroFuncionario {
 
-    private final RepoFuncionario repositorio;
+    private final FuncionarioRepository repositorio;
 
     @Override
     public void validar(DtoCadastroFuncionario dados) {

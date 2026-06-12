@@ -1,4 +1,4 @@
-package scgf.api.infrastructure.funcionario.repository;
+package scgf.api.infrastructure.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -10,7 +10,7 @@ import scgf.api.domain.funcionario.Funcionario;
 
 import java.util.List;
 
-public interface RepoFuncionario extends JpaRepository<Funcionario, String> {
+public interface FuncionarioRepository extends JpaRepository<Funcionario, String> {
 
     @Query("""
         select f

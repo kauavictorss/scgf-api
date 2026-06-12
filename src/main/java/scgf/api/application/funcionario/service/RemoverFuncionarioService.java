@@ -4,7 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import scgf.api.infrastructure.funcionario.repository.RepoFuncionario;
+import scgf.api.infrastructure.repository.FuncionarioRepository;
 import scgf.api.infrastructure.exception.RecursoNaoEncontradoException;
 
 @Service
@@ -12,7 +12,7 @@ import scgf.api.infrastructure.exception.RecursoNaoEncontradoException;
 @RequiredArgsConstructor
 public class RemoverFuncionarioService {
 
-    private final RepoFuncionario repositorio;
+    private final FuncionarioRepository repositorio;
 
     @Transactional
     public void remover(String cpf) {

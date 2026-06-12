@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import scgf.api.application.funcionario.dto.DtoCadastroFuncionario;
 import scgf.api.application.funcionario.dto.DtoDetalhamentoFuncionario;
 import scgf.api.domain.funcionario.Funcionario;
-import scgf.api.infrastructure.funcionario.repository.RepoFuncionario;
+import scgf.api.infrastructure.repository.FuncionarioRepository;
 
 @Service
 @Slf4j
@@ -15,7 +15,7 @@ import scgf.api.infrastructure.funcionario.repository.RepoFuncionario;
 public class CadastrarFuncionarioService {
 
     private final ValidadorCadastroService validadorCadastroService;
-    private final RepoFuncionario repositorio;
+    private final FuncionarioRepository repositorio;
 
     @Transactional
     public DtoDetalhamentoFuncionario cadastrar(DtoCadastroFuncionario dados) {

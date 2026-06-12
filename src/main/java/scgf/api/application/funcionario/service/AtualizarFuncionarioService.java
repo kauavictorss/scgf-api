@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import scgf.api.application.funcionario.dto.DtoAtualizarFuncionario;
 import scgf.api.application.funcionario.dto.DtoDetalhamentoFuncionario;
-import scgf.api.infrastructure.funcionario.repository.RepoFuncionario;
+import scgf.api.infrastructure.repository.FuncionarioRepository;
 import scgf.api.infrastructure.exception.RecursoNaoEncontradoException;
 
 @Service
@@ -14,7 +14,7 @@ import scgf.api.infrastructure.exception.RecursoNaoEncontradoException;
 @RequiredArgsConstructor
 public class AtualizarFuncionarioService {
 
-    private final RepoFuncionario repositorio;
+    private final FuncionarioRepository repositorio;
 
     @Transactional
     public DtoDetalhamentoFuncionario atualizar(DtoAtualizarFuncionario dados) {
