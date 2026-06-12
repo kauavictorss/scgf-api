@@ -80,17 +80,15 @@ A API foi projetada para ser consumida por qualquer cliente REST (Web, Mobile ou
 
 ## 📐 Arquitetura do Projeto
 
-O código está organizado seguindo padrões de **Clean Architecture** e **S.O.L.I.D**:
+O código está organizado seguindo padrões de **Clean Architecture** e **S.O.L.I.D**, dividido em camadas bem definidas:
 
 ```text
 scgf-api/
 ├── src/main/java/scgf/api/
-│   ├── config/         # Configurações globais (CORS, etc.)
-│   ├── conta/          # Domínio de Contas Bancárias
-│   ├── endereco/       # Domínio de Endereços
-│   ├── especialidade/  # Domínio de Especialidades
-│   └── funcionario/    # Domínio Principal (Model, DTO, Repository, Service, Controller)
-└── src/resources/db/migration  # Versionamento do banco de dados (Flyway)
+│   ├── application/    # Camada de Aplicação: DTOs, Services e Validadores de negócio
+│   ├── domain/         # Camada de Domínio: Entidades e Enums (Regras de negócio puras)
+│   └── infrastructure/ # Camada de Infraestrutura: Controllers, Repositories, Configs e Exceptions
+└── src/resources/      # Recursos estáticos, configurações e migrations (Flyway)
 ```
 
 ---
