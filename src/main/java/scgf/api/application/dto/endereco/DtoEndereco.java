@@ -1,7 +1,9 @@
 package scgf.api.application.dto.endereco;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import scgf.api.domain.enums.endereco.Estado;
 
 public record DtoEndereco(
         @NotBlank
@@ -17,9 +19,8 @@ public record DtoEndereco(
         @NotBlank
         String cidade,
 
-        @NotBlank
-        @Pattern(regexp = "[A-Z]{2}", message = "UF deve conter apenas letras maiúsculas")
-        String uf,
+        @NotNull(message = "UF é obrigatória")
+        Estado uf,
 
         String numero,
         String complemento) {

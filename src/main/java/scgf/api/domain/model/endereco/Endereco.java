@@ -1,10 +1,13 @@
 package scgf.api.domain.model.endereco;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import scgf.api.application.dto.endereco.DtoEndereco;
+import scgf.api.domain.enums.endereco.Estado;
 
 @Embeddable
 @Getter
@@ -16,7 +19,10 @@ public class Endereco {
     private String logradouro;
     private String bairro;
     private String cidade;
-    private String uf;
+
+    @Enumerated(EnumType.STRING)
+    private Estado uf;
+
     private String numero;
     private String complemento;
 
