@@ -80,16 +80,36 @@ A API foi projetada para ser consumida por qualquer cliente REST (Web, Mobile ou
 
 ## 📐 Arquitetura do Projeto
 
-O código está organizado seguindo padrões de **Clean Architecture** e **S.O.L.I.D**, dividido em camadas bem definidas:
+O projeto adota os princípios da **Clean Architecture** (Arquitetura Limpa), promovendo a separação de interesses e garantindo que o núcleo de negócio seja independente de frameworks e ferramentas externas.
+
+### 🏗️ Estrutura de Camadas
 
 ```text
 scgf-api/
-├── src/main/java/scgf/api/
-│   ├── application/    # Camada de Aplicação: DTOs, Services e Validadores de negócio
-│   ├── domain/         # Camada de Domínio: Entidades e Enums (Regras de negócio puras)
-│   └── infrastructure/ # Camada de Infraestrutura: Controllers, Repositories, Configs e Exceptions
-└── src/resources/      # Recursos estáticos, configurações e migrations (Flyway)
+├── application/    # Camada de Orquestração
+│   ├── dto/        # Objetos de Transferência de Dados (Records)
+│   ├── service/    # Casos de Uso (Lógica de aplicação e coordenação)
+│   └── validation/ # Validadores de regras de negócio (Padrão Strategy)
+│
+├── domain/         # O Coração do Sistema (Independente de Frameworks)
+│   ├── model/      # Entidades de negócio com comportamento (Rich Domain Model)
+│   └── enums/      # Enums e constantes de domínio
+│
+└── infrastructure/ # Detalhes Técnicos e Integrações
+    ├── controller/ # Endpoints REST (Porta de entrada)
+    ├── repository/ # Implementação da persistência (Spring Data JPA)
+    ├── config/     # Configurações globais (CORS, Beans)
+    └── exception/  # Manipulação global de erros (RestControllerAdvice)
 ```
+
+### 🔁 Fluxo de Execução
+1. O **Controller** recebe a requisição e mapeia para um **DTO**.
+2. O **Service** (Application) recebe o DTO e executa as **Validações**.
+3. O Service manipula o **Domain Model** para realizar a lógica de negócio.
+4. O Service utiliza o **Repository** para persistir as alterações.
+5. O resultado é transformado em um DTO de retorno e enviado pelo Controller.
+
+> **Regra de Dependência:** As dependências sempre apontam para dentro. O `Domain` é o núcleo e não conhece as camadas externas (`Application` ou `Infrastructure`).
 
 ---
 
